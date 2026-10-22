@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1223">
+  <meta name="description" content="서울시교육청 융합과학교육원 2026 발명(심화) 과정 학생 팀 프로젝트 온라인 전시관. 세 가지 발명 아이디어를 입체적인 슬라이드로 만나보세요.">
+  <meta property="og:title" content="2026 INVENTION LAB | 발명(심화) 과정">
+  <meta property="og:description" content="상상이 발명이 되는 순간. 학생들의 발명 프로젝트를 만나보세요.">
+  <title>2026 INVENTION LAB | 발명(심화) 과정</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a1121;
+      --bg-2: #0f1b2e;
+      --paper: #f6f7f8;
+      --ink: #101b2a;
+      --muted: #a9b6c9;
+      --mint: #75e9cc;
+      --mint-dark: #21b99b;
+      --border: rgba(255,255,255,.12);
+      --max: 1250px;
+      --radius: 24px;
+      --font: 'Pretendard Variable', 'Pretendard', 'SUIT', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family:var(--font); color:#f5f8fd; background:var(--bg); min-width:320px; -webkit-font-smoothing:antialiased; }
+    body.modal-open { overflow:hidden; }
+    button, input, a { font:inherit; }
+    button { cursor:pointer; }
+    a { color:inherit; text-decoration:none; }
+    button:focus-visible, a:focus-visible, input:focus-visible, [tabindex="0"]:focus-visible { outline:3px solid #7bebd3; outline-offset:4px; }
+    img { display:block; max-width:100%; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .skip { position:absolute; top:-60px; left:16px; z-index:100; padding:11px 16px; border-radius:10px; background:white; color:var(--ink); }
+    .skip:focus { top:16px; }
+    .site-header { position:relative; z-index:20; border-bottom:1px solid rgba(255,255,255,.065); background:rgba(10,17,33,.95); }
+    .header-inner { max-width:var(--max); margin:auto; padding:21px 32px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+    .brand { display:inline-flex; align-items:center; gap:13px; flex:0 0 auto; }
+    .brand-mark { width:43px; height:43px; border-radius:14px; display:grid; place-items:center; background:linear-gradient(140deg,#8ce9d5,#8ea9f5); box-shadow:0 5px 20px rgba(117,233,204,.22); color:#081b2a; }
+    .brand-mark svg { width:27px; height:27px; }
+    .brand-name { display:flex; flex-direction:column; gap:3px; line-height:1.05; }
+    .brand-name strong { letter-spacing:.09em; font-size:15px; font-weight:850; }
+    .brand-name small { font-size:11px; letter-spacing:-.02em; color:#aebad0; }
+    .header-nav { display:flex; align-items:center; gap:31px; margin-left:auto; }
+    .header-nav a { font-size:13px; color:#b8c4d2; transition:color .2s ease; }
+    .header-nav a:hover { color:#fff; }
+    .header-cta { display:flex; align-items:center; gap:9px; padding:12px 18px; border:1px solid rgba(117,233,204,.3); border-radius:100px; color:var(--mint); font-weight:750; font-size:12px; background:rgba(117,233,204,.075); white-space:nowrap; transition:background .2s; }
+    .header-cta:hover { background:rgba(117,233,204,.17); }
+
+    .hero { position:relative; isolation:isolate; overflow:hidden; padding-bottom:64px; }
+    .hero::before { content:""; position:absolute; z-index:-2; inset:-40% -5% 0; background:radial-gradient(ellipse 45% 25% at 19% 35%,rgba(33,158,151,.17),transparent 75%), radial-gradient(ellipse 40% 28% at 82% 44%,rgba(104,102,218,.16),transparent 75%); pointer-events:none; }
+    .hero::after { content:""; position:absolute; inset:0; z-index:-1; opacity:.19; background-image:linear-gradient(rgba(195,217,247,.08) 1px, transparent 1px),linear-gradient(90deg,rgba(195,217,247,.08) 1px,transparent 1px); background-size:56px 56px; -webkit-mask-image:linear-gradient(to bottom,transparent,black 25%,black 70%,transparent); mask-image:linear-gradient(to bottom,transparent,black 25%,black 70%,transparent); pointer-events:none; }
+    .hero-heading { max-width:var(--max); margin:auto; padding:75px 32px 0; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }
+    .eyebrow { display:flex; align-items:center; gap:11px; color:var(--mint); text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:.17em; }
+    .eyebrow .tiny-star { font-size:18px; line-height:1; }
+    h1,h2,h3,p { margin-top:0; }
+    .hero h1 { font-weight:900; line-height:1.19; letter-spacing:-.065em; font-size:clamp(37px,5vw,66px); margin:21px 0 17px; word-break:keep-all; }
+    .hero h1 span { color:var(--mint); }
+    .hero-lead { font-size:clamp(13px,1.5vw,16px); line-height:1.85; color:#b1bed1; margin-bottom:0; max-width:560px; word-break:keep-all; }
+    .hero-side { padding-bottom:7px; text-align:right; flex:0 0 auto; }
+    .hero-side .big-number { font-size:49px; line-height:1; font-weight:800; letter-spacing:-.075em; font-variant-numeric:tabular-nums; }
+    .hero-side .big-number span { font-size:25px; color:var(--mint); }
+    .hero-side p { margin:8px 0 0; color:#98a9be; font-size:12px; }
+
+    .showcase { max-width:calc(var(--max) + 10px); margin:45px auto 0; position:relative; overflow:hidden; border:1px solid rgba(200,220,255,.12); border-radius:33px; background:linear-gradient(150deg,#14253c 0%,#101b30 48%,#11192a 100%); box-shadow:0 36px 100px rgba(0,0,0,.17), inset 0 1px rgba(255,255,255,.08); }
+    .showcase:before { content:""; position:absolute; width:700px; height:700px; top:-230px; left:50%; transform:translateX(-50%); border-radius:50%; background:radial-gradient(circle,rgba(103,214,212,.14),rgba(111,127,221,.045) 44%,transparent 70%); pointer-events:none; }
+    .showcase-top { display:flex; align-items:center; justify-content:space-between; position:relative; z-index:4; padding:22px 32px 0; gap:12px; }
+    .showcase-label { display:inline-flex; align-items:center; gap:10px; color:#cbd8e7; letter-spacing:.16em; font-size:10px; font-weight:800; }
+    .showcase-label .pulse { width:7px; height:7px; border-radius:50%; background:var(--mint); box-shadow:0 0 0 4px rgba(117,233,204,.12); }
+    .showcase-help { font-size:11px; color:#8ba4bf; display:flex; align-items:center; gap:7px; }
+    .showcase-help svg { height:15px; width:15px; }
+    .orbit-scene { height:535px; position:relative; perspective:1300px; perspective-origin:50% 48%; overflow:hidden; touch-action:pan-y; outline-offset:-6px; }
+    .orbit-scene::before { content:""; pointer-events:none; position:absolute; left:50%; top:47%; width:680px; height:680px; border:1px solid rgba(172,231,245,.095); border-radius:50%; transform:translate(-50%,-50%) rotateX(65deg); box-shadow:0 0 0 56px rgba(172,231,245,.026),0 0 0 116px rgba(172,231,245,.017); }
+    .orbit-ground { position:absolute; left:50%; bottom:31px; height:45px; width:min(65vw,650px); border-radius:50%; transform:translateX(-50%); background:radial-gradient(ellipse,rgba(6,6,13,.35),transparent 72%); filter:blur(14px); pointer-events:none; }
+    .orbit-track { position:absolute; inset:0; transform-style:preserve-3d; pointer-events:none; --orbit-offset: min(36vw, 380px); }
+    .orbit-card { pointer-events:auto; position:absolute; left:50%; top:47%; width:clamp(300px,37vw,447px); padding:6px; border:1px solid rgba(255,255,255,.36); border-radius:26px; background:#eaf3f5; box-shadow:0 18px 54px rgba(1,8,21,.45); color:var(--ink); transform-style:preserve-3d; backface-visibility:hidden; transition:transform 850ms cubic-bezier(.18,.85,.2,1),filter 750ms ease,opacity 750ms ease,box-shadow 500ms ease; user-select:none; -webkit-user-select:none; cursor:pointer; will-change:transform; }
+    .orbit-card[data-position="center"] { z-index:5; opacity:1; filter:brightness(1) saturate(1); transform:translate(-50%,-50%) translate3d(0,0,110px) rotateY(0) rotateZ(0) scale(1); box-shadow:0 32px 86px rgba(0,5,17,.65),0 0 0 1px rgba(124,236,215,.26); }
+    .orbit-card[data-position="left"] { z-index:2; opacity:.76; filter:brightness(.73) saturate(.8); transform:translate(-50%,-50%) translate3d(calc(var(--orbit-offset) * -1),17px,-220px) rotateY(30deg) rotateZ(-5deg) scale(.88); }
+    .orbit-card[data-position="right"] { z-index:2; opacity:.76; filter:brightness(.73) saturate(.8); transform:translate(-50%,-50%) translate3d(var(--orbit-offset),17px,-220px) rotateY(-30deg) rotateZ(5deg) scale(.88); }
+    .orbit-card[data-position="left"]:hover,.orbit-card[data-position="right"]:hover { filter:brightness(.86) saturate(1); }
+    .orbit-card[data-position="center"]:hover { box-shadow:0 37px 90px rgba(0,5,17,.7),0 0 0 2px rgba(117,233,204,.38); }
+    .orbit-art { aspect-ratio:4/3; overflow:hidden; background:#fff; border-radius:19px 19px 9px 9px; position:relative; }
+    .orbit-art img { width:100%; height:100%; object-fit:contain; }
+    .orbit-info { min-height:93px; padding:14px 15px 10px; display:flex; align-items:center; justify-content:space-between; gap:9px; }
+    .orbit-kicker { display:block; margin:0 0 5px; letter-spacing:.1em; font-size:9px; font-weight:850; color:#607485; }
+    .orbit-title { margin:0; font-size:17px; line-height:1.4; font-weight:800; letter-spacing:-.055em; word-break:keep-all; }
+    .orbit-tag { margin-top:5px; font-size:10px; color:#60758a; }
+    .orbit-link { flex:0 0 auto; height:36px; min-width:36px; padding:0 11px; display:grid; place-items:center; background:#0d2735; color:#bafbef; border-radius:13px; border:0; font-size:19px; transition:background .2s,transform .2s; }
+    .orbit-link:hover { transform:translateY(-2px); background:#1a4960; }
+    .orbit-card:not([data-position="center"]) .orbit-link { pointer-events:none; }
+    .orbit-index { position:absolute; left:15px; top:15px; padding:8px 10px; display:inline-flex; gap:6px; align-items:center; border-radius:10px; background:rgba(255,255,255,.9); color:#1b3041; backdrop-filter:blur(7px); font-weight:900; font-size:10px; letter-spacing:.11em; box-shadow:0 3px 9px rgba(7,17,27,.06); }
+    .orbit-index span { display:block; width:6px; height:6px; border-radius:50%; background:var(--accent); }
+    .orbit-card[data-position="center"] .orbit-art img { animation:subtle-entrance 650ms cubic-bezier(.2,.75,.15,1) both; }
+    @keyframes subtle-entrance { from { opacity:.85; transform:scale(1.025); } to { opacity:1; transform:scale(1); } }
+    .showcase-bottom { position:relative; z-index:6; border-top:1px solid rgba(255,255,255,.075); min-height:120px; padding:23px 32px 26px; display:flex; justify-content:space-between; align-items:center; gap:24px; background:rgba(10,19,33,.28); }
+    .featured { min-width:0; display:flex; gap:16px; align-items:center; }
+    .featured-num { font-size:37px; line-height:1; font-weight:900; letter-spacing:-.07em; color:var(--mint); font-variant-numeric:tabular-nums; }
+    .featured-divider { height:39px; width:1px; background:rgba(255,255,255,.17); }
+    .featured small { display:block; font-size:10px; font-weight:850; letter-spacing:.15em; color:#90a8be; margin-bottom:5px; }
+    .featured strong { display:block; font-size:17px; line-height:1.35; letter-spacing:-.04em; word-break:keep-all; }
+    .featured-actions { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+    .featured-actions a,.featured-actions button { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16); border-radius:11px; color:#f0f8ff; padding:11px 14px; font-size:12px; font-weight:750; transition:background .2s,border-color .2s; white-space:nowrap; }
+    .featured-actions a { background:var(--mint); color:#092635; border-color:var(--mint); }
+    .featured-actions a:hover { background:#a4ffed; }
+    .featured-actions button:hover { background:rgba(255,255,255,.16); }
+    .slider-bar { display:flex; gap:14px; align-items:center; justify-content:center; flex:0 0 auto; }
+    .control-arrow { width:42px; height:42px; display:grid; place-items:center; color:white; border-radius:50%; border:1px solid rgba(255,255,255,.17); background:rgba(255,255,255,.065); font-size:21px; transition:background .2s; }
+    .control-arrow:hover { background:rgba(117,233,204,.18); }
+    .slide-dots { display:flex; gap:7px; align-items:center; }
+    .slide-dot { height:7px; width:7px; border-radius:50%; padding:0; border:0; background:#607486; transition:background .3s,width .3s; }
+    .slide-dot[aria-current="true"] { width:25px; border-radius:10px; background:var(--mint); }
+    .autoplay { width:32px; height:32px; flex:0 0 auto; background:transparent; color:#8fb3c6; border:0; display:grid; place-items:center; margin-left:0; font-size:15px; border-radius:7px; }
+    .autoplay:hover { color:#fff; background:rgba(255,255,255,.08); }
+    .autoplay.is-playing { color:var(--mint); }
+    .carousel-tip { margin:18px auto 0; max-width:var(--max); padding:0 32px; display:flex; justify-content:center; color:#91a6bc; font-size:12px; }
+    .carousel-tip strong { color:#e0e9f3; font-weight:700; }
+
+    .light-section { color:var(--ink); background:var(--paper); position:relative; }
+    .section-inner { max-width:var(--max); margin:0 auto; padding:105px 32px 110px; }
+    .section-eyebrow { color:#178c84; font-size:11px; font-weight:850; letter-spacing:.16em; text-transform:uppercase; margin-bottom:13px; }
+    .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:30px; margin-bottom:31px; }
+    .section-head h2 { font-size:clamp(27px,3.7vw,45px); font-weight:900; line-height:1.3; letter-spacing:-.06em; margin-bottom:11px; word-break:keep-all; }
+    .section-head p { color:#607184; font-size:14px; line-height:1.85; margin-bottom:0; word-break:keep-all; }
+    .catalog-count { background:#e3eeec; border-radius:99px; padding:10px 15px; color:#226e6d; font-size:12px; font-weight:800; flex-shrink:0; }
+    .toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+    .searchbox { display:flex; align-items:center; gap:10px; flex:0 1 315px; min-width:210px; background:#fff; border:1px solid #dde4e9; border-radius:13px; padding:0 13px; color:#8a99a4; box-shadow:0 2px 7px rgba(17,40,57,.015); }
+    .searchbox svg { width:19px; height:19px; flex:0 0 auto; }
+    .searchbox input { width:100%; border:0; outline:0; background:transparent; color:#112336; font-size:13px; padding:14px 0; }
+    .searchbox:focus-within { border-color:#38bba8; box-shadow:0 0 0 3px rgba(31,173,150,.1); }
+    .filter-group { display:flex; align-items:center; flex-wrap:wrap; gap:7px; }
+    .filter-chip { padding:10px 14px; border:1px solid #dde5e9; background:#fff; border-radius:12px; font-size:12px; font-weight:700; color:#607184; transition:all .2s; }
+    .filter-chip:hover { border-color:#81bcbb; }
+    .filter-chip[aria-pressed="true"] { background:#123945; border-color:#123945; color:#fff; }
+    .project-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:21px; }
+    .project-item { display:flex; flex-direction:column; min-width:0; background:#fff; border:1px solid #e0e7e9; border-radius:22px; overflow:hidden; box-shadow:0 8px 26px rgba(13,41,59,.035); transition:transform .3s,box-shadow .3s; }
+    .project-item:hover { transform:translateY(-6px); box-shadow:0 17px 42px rgba(13,41,59,.12); }
+    .project-art { aspect-ratio:4/3; position:relative; background:#fff; overflow:hidden; }
+    .project-art img { width:100%; height:100%; object-fit:contain; transition:transform .55s ease; }
+    .project-item:hover .project-art img { transform:scale(1.035); }
+    .project-art .index-corner { position:absolute; left:17px; top:17px; display:inline-flex; gap:6px; padding:7px 10px; border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 2px 14px rgba(10,26,40,.06); font-size:10px; font-weight:850; color:#526674; }
+    .index-corner i { width:7px; height:7px; background:var(--accent); border-radius:50%; margin:auto; }
+    .project-copy { display:flex; flex-direction:column; flex:1; padding:19px 22px 22px; border-top:1px solid #f0f2f4; }
+    .project-category { color:#178978; font-size:11px; font-weight:850; letter-spacing:.02em; margin-bottom:9px; }
+    .project-copy h3 { font-size:19px; font-weight:850; line-height:1.44; letter-spacing:-.055em; margin-bottom:11px; word-break:keep-all; }
+    .project-copy p { line-height:1.75; font-size:12.5px; color:#687786; word-break:keep-all; margin-bottom:18px; }
+    .tech-tags { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-bottom:22px; }
+    .tech-tags span { padding:6px 9px; font-size:10px; font-weight:680; background:#f3f6f8; border-radius:7px; color:#697d8b; }
+    .project-actions { display:flex; gap:9px; align-items:center; margin-top:auto; }
+    .btn-site,.btn-detail { display:inline-flex; justify-content:center; align-items:center; gap:7px; flex:1; min-height:42px; border-radius:11px; padding:10px 7px; font-size:11.5px; font-weight:800; white-space:nowrap; }
+    .btn-site { background:#112d3a; border:1px solid #112d3a; color:white; }
+    .btn-site:hover { background:#236e73; border-color:#236e73; }
+    .btn-detail { background:#fff; color:#435569; border:1px solid #d8e1e8; }
+    .btn-detail:hover { background:#f2f8f7; border-color:#a8d8d0; }
+    .empty-state { display:none; grid-column:1/-1; padding:70px 20px; text-align:center; border-radius:18px; border:1px dashed #bed2d1; background:#fff; }
+    .empty-state.show { display:block; }
+    .empty-state h3 { font-size:19px; margin-bottom:7px; }
+    .empty-state p { color:#6e7b86; font-size:13px; }
+    .empty-state button { border:0; border-radius:10px; background:#143b46; color:white; padding:11px 19px; font-weight:750; }
+
+    .process-section { background:#eaf0ef; color:var(--ink); }
+    .process-section .section-inner { padding-top:74px; padding-bottom:83px; }
+    .process-intro { max-width:590px; margin-bottom:31px; }
+    .process-intro h2 { font-size:clamp(27px,3vw,39px); font-weight:900; letter-spacing:-.055em; margin-bottom:12px; }
+    .process-intro p { color:#637684; font-size:13px; line-height:1.9; word-break:keep-all; margin:0; }
+    .step-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
+    .step-card { border:1px solid #d9e3e4; border-radius:17px; background:rgba(255,255,255,.64); min-height:139px; padding:21px 18px; }
+    .step-card .step-icon { font-size:21px; display:flex; align-items:center; gap:7px; color:#26877f; }
+    .step-card .step-icon span { font-size:10px; font-weight:850; letter-spacing:.09em; }
+    .step-card h3 { margin:16px 0 6px; font-size:15px; font-weight:830; letter-spacing:-.04em; }
+    .step-card p { font-size:11px; line-height:1.75; color:#70808d; margin:0; }
+    .site-footer { background:#081120; border-top:1px solid rgba(255,255,255,.09); }
+    .footer-inner { max-width:var(--max); margin:auto; padding:35px 32px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    .footer-inner strong { font-weight:850; font-size:15px; letter-spacing:.08em; }
+    .footer-inner p { color:#91a2b7; font-size:11px; margin:9px 0 0; }
+    .footer-inner small { color:#6f829a; font-size:11px; }
+    .back-top { padding:10px 13px; border-radius:10px; border:1px solid var(--border); color:#aec3d5; font-size:11px; }
+
+    .detail-dialog { position:fixed; inset:0; margin:auto; width:min(92vw,760px); max-height:min(90vh,870px); padding:0; overflow:auto; border:1px solid rgba(255,255,255,.16); border-radius:24px; background:#fff; color:#182638; box-shadow:0 24px 100px rgba(0,0,0,.48); }
+    .detail-dialog::backdrop { background:rgba(4,11,21,.82); backdrop-filter:blur(8px); }
+    .dialog-head { position:relative; background:linear-gradient(140deg,#f8fcff,#f2f6f7); padding:0; }
+    .dialog-head img { width:100%; max-height:380px; aspect-ratio:4/2.45; object-fit:contain; }
+    .dialog-close { position:sticky; z-index:10; display:grid; place-items:center; width:39px; height:39px; margin:0 15px -39px auto; top:15px; border:1px solid #e1e8eb; border-radius:50%; background:rgba(255,255,255,.94); color:#193144; font-size:21px; box-shadow:0 4px 12px rgba(10,25,40,.08); }
+    .dialog-copy { padding:27px 35px 33px; }
+    .dialog-cat { color:#098777; font-size:11px; font-weight:900; letter-spacing:.09em; }
+    .dialog-copy h2 { font-size:clamp(22px,3.5vw,29px); line-height:1.35; word-break:keep-all; margin:9px 0 12px; letter-spacing:-.055em; }
+    .dialog-copy .dialog-desc { font-size:14px; line-height:1.9; color:#52697b; margin-bottom:23px; word-break:keep-all; }
+    .dialog-subheading { font-size:14px; font-weight:850; margin:21px 0 10px; }
+    .dialog-tags { display:flex; flex-wrap:wrap; gap:8px; }
+    .dialog-tags span { font-size:12px; padding:8px 11px; border-radius:9px; background:#eaf5f3; color:#27685e; }
+    .dialog-steps { margin:0; padding-left:23px; }
+    .dialog-steps li { margin-bottom:9px; font-size:13px; line-height:1.75; color:#53697a; word-break:keep-all; }
+    .dialog-foot { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-top:24px; border-top:1px solid #e9eef1; padding-top:19px; }
+    .dialog-notice { font-size:10px; line-height:1.6; color:#8393a0; }
+    .dialog-visit { display:inline-flex; align-items:center; gap:7px; padding:13px 17px; border-radius:11px; background:#12313e; color:white; font-size:12px; font-weight:800; white-space:nowrap; }
+    .dialog-visit:hover { background:#216e73; }
+
+    @media (max-width: 1100px) {
+      .showcase { margin-left:22px; margin-right:22px; }
+      .orbit-card { width:clamp(295px,42vw,422px); }
+      .orbit-track { --orbit-offset:min(35vw,333px); }
+      .showcase-bottom { flex-wrap:wrap; }
+      .slider-bar { margin-left:auto; }
+    }
+    @media (max-width: 820px) {
+      .header-inner { padding:17px 22px; }
+      .header-nav { display:none; }
+      .hero-heading { padding:60px 23px 0; }
+      .hero-side { display:none; }
+      .showcase { margin:32px 14px 0; border-radius:26px; }
+      .orbit-scene { height:456px; }
+      .orbit-track { --orbit-offset:min(34vw,273px); }
+      .orbit-card { width:clamp(275px,45vw,350px); }
+      .showcase-bottom { padding:20px 24px 22px; }
+      .project-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .step-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .step-card:nth-child(4), .step-card:nth-child(5) { grid-column:span 1; }
+      .section-inner { padding:76px 24px 80px; }
+    }
+    @media (max-width: 560px) {
+      .header-inner { padding:14px 17px; }
+      .brand-mark { width:37px; height:37px; border-radius:12px; }
+      .brand-name strong { font-size:11px; }
+      .brand-name small { font-size:9px; }
+      .header-cta { padding:10px 11px; font-size:10px; }
+      .hero-heading { padding:45px 20px 0; }
+      .hero h1 { font-size:clamp(33px,9vw,43px); line-height:1.26; margin:15px 0 13px; }
+      .hero-lead { font-size:13px; }
+      .eyebrow { font-size:10px; letter-spacing:.1em; }
+      .showcase { margin:28px 10px 0; border-radius:22px; }
+      .showcase-top { padding:19px 17px 0; }
+      .showcase-label { font-size:9px; }
+      .showcase-help { font-size:9px; }
+      .showcase-help span { display:none; }
+      .orbit-scene { height:387px; }
+      .orbit-track { --orbit-offset:min(49vw,215px); }
+      .orbit-card { width:min(71vw,310px); border-radius:19px; padding:4px; }
+      .orbit-art { border-radius:14px 14px 7px 7px; }
+      .orbit-index { left:9px; top:9px; font-size:8px; padding:6px; }
+      .orbit-info { min-height:73px; padding:10px; }
+      .orbit-title { font-size:12.5px; }
+      .orbit-kicker { font-size:8px; margin-bottom:3px; }
+      .orbit-tag { font-size:9px; }
+      .orbit-link { min-width:31px; height:31px; border-radius:10px; }
+      .orbit-card[data-position="left"] { transform:translate(-50%,-50%) translate3d(calc(var(--orbit-offset) * -1),20px,-220px) rotateY(32deg) rotateZ(-6deg) scale(.83); opacity:.55; }
+      .orbit-card[data-position="right"] { transform:translate(-50%,-50%) translate3d(var(--orbit-offset),20px,-220px) rotateY(-32deg) rotateZ(6deg) scale(.83); opacity:.55; }
+      .showcase-bottom { flex-direction:column; padding:17px 18px 20px; gap:18px; align-items:stretch; }
+      .featured { gap:11px; }
+      .featured-num { font-size:29px; }
+      .featured-divider { height:31px; }
+      .featured strong { font-size:14px; }
+      .featured-actions a,.featured-actions button { font-size:11px; padding:10px 12px; }
+      .slider-bar { margin:0; justify-content:space-between; }
+      .carousel-tip { padding:0 20px; text-align:center; font-size:11px; }
+      .hero { padding-bottom:48px; }
+      .section-inner { padding:66px 18px 70px; }
+      .section-head { align-items:flex-start; gap:15px; }
+      .section-head h2 { font-size:29px; }
+      .section-head p { font-size:12px; }
+      .catalog-count { font-size:10px; padding:8px 9px; }
+      .toolbar { gap:11px; }
+      .searchbox { flex:1 1 100%; min-width:0; }
+      .filter-group { gap:6px; }
+      .filter-chip { font-size:11px; padding:9px 10px; }
+      .project-grid { grid-template-columns:1fr; gap:15px; }
+      .project-copy h3 { font-size:20px; }
+      .project-copy p { font-size:13px; }
+      .process-section .section-inner { padding-top:61px; padding-bottom:68px; }
+      .step-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+      .step-card { min-height:136px; padding:16px 13px; }
+      .step-card h3 { font-size:13px; }
+      .step-card p { font-size:10px; }
+      .footer-inner { padding:29px 18px; flex-wrap:wrap; }
+      .footer-inner strong { font-size:13px; }
+      .detail-dialog { width:95vw; max-height:92vh; border-radius:19px; }
+      .dialog-copy { padding:21px 21px 28px; }
+      .dialog-foot { align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width: 374px) {
+      .brand-name small { display:none; }
+      .header-cta { font-size:9px; }
+      .showcase-help { display:none; }
+      .orbit-scene { height:338px; }
+      .orbit-info { min-height:65px; }
+      .orbit-card { width:72vw; }
+      .featured-actions a,.featured-actions button { font-size:10px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#gallery">프로젝트 목록으로 바로가기</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="2026 INVENTION LAB 맨 위로">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 2.7 19.7 12.3 29.4 16l-9.7 3.7L16 29.3l-3.7-9.6L2.6 16l9.7-3.7L16 2.7Z" fill="currentColor"/><circle cx="16" cy="16" r="3" fill="#79e8d0"/></svg></span>
+        <span class="brand-name"><strong>2026 INVENTION LAB</strong><small>서울시교육청 융합과학교육원</small></span>
+      </a>
+      <nav class="header-nav" aria-label="주 메뉴">
+        <a href="#showcase">인터랙티브 전시</a><a href="#gallery">프로젝트 목록</a><a href="#process">발명 과정</a>
+      </nav>
+      <a class="header-cta" href="#gallery">프로젝트 보기 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-heading">
+        <div>
+          <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✳</span> 2026 발명(심화) 과정 · 학생 프로젝트 전시관</p>
+          <h1 id="hero-title">상상이 발명이 되는<br><span>순간.</span></h1>
+          <p class="hero-lead">작은 궁금증에서 출발한 아이디어. 학생들이 직접 고민하고 설계한 발명을<br class="desktop-break"> 입체적인 온라인 전시관에서 만나보세요.</p>
+        </div>
+        <div class="hero-side" aria-label="현재 등록된 작품 3개"><div class="big-number">03<span> / 03</span></div><p>현재 등록된 발명 프로젝트</p></div>
+      </div>
+      <div class="showcase" id="showcase" aria-label="입체 회전형 발명 작품 전시">
+        <div class="showcase-top"><div class="showcase-label"><span class="pulse" aria-hidden="true"></span> INTERACTIVE EXHIBITION</div><div class="showcase-help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 12V8a2 2 0 0 1 4 0v4-7a2 2 0 1 1 4 0v7m0-2a2 2 0 0 1 4 0v4c0 4-3 7-7 7h-2c-3 0-5-1-6-4l-2-4a2 2 0 0 1 4-2l1 1"/></svg><span>마우스를 올리거나 터치해 작품을 돌려보세요</span></div></div>
+        <div class="orbit-scene" id="orbitScene" role="region" tabindex="0" aria-roledescription="3D 프로젝트 슬라이드" aria-label="3개 발명 프로젝트. 좌우 방향키 또는 아래 버튼으로 이동 가능">
+          <div class="orbit-ground" aria-hidden="true"></div>
+          <div class="orbit-track" id="orbitTrack"></div>
+        </div>
+        <div class="showcase-bottom">
+          <div class="featured"><div class="featured-num" id="featuredNum">01</div><div class="featured-divider" aria-hidden="true"></div><div><small id="featuredCategory">생활 · 환경</small><strong id="featuredTitle">토양 습도 기반 자동 물주기 장치</strong></div></div>
+          <div class="featured-actions"><button type="button" id="featuredDetail">작품 자세히</button><a id="featuredVisit" href="https://sites.google.com/view/vdwzvwtdgg/" target="_blank" rel="noopener noreferrer" aria-label="자동 물주기 팀 홈페이지 방문, 새 탭">팀 홈페이지 방문 ↗</a></div>
+          <div class="slider-bar" aria-label="슬라이드 제어"><button class="control-arrow" id="prevSlide" type="button" aria-label="이전 프로젝트">‹</button><div class="slide-dots" id="slideDots"></div><button class="control-arrow" id="nextSlide" type="button" aria-label="다음 프로젝트">›</button><button type="button" class="autoplay" id="autoPlayToggle" aria-label="자동 회전 켜기" aria-pressed="false" title="자동 회전 켜기">⟳</button></div>
+        </div>
+      </div>
+      <p class="carousel-tip"><span id="interactionHint">↗ <strong>옆 카드에 마우스를 올리면</strong> 선택한 작품이 앞으로 회전합니다. · 좌우 방향키도 사용해보세요.</span></p>
+    </section>
+
+    <section class="light-section" id="gallery" aria-labelledby="gallery-title">
+      <div class="section-inner">
+        <p class="section-eyebrow">MEET THE INVENTORS</p>
+        <div class="section-head"><div><h2 id="gallery-title">우리의 발명 프로젝트</h2><p>생활 속 작은 불편함을 새로운 발명의 출발점으로. 각 팀의 생각과 제작 과정을 살펴보세요.</p></div><div class="catalog-count" id="catalogCount">현재 3개 작품</div></div>
+        <div class="toolbar"><label class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><span class="sr-only">작품 검색</span><input id="projectSearch" type="search" placeholder="작품명, 기술, 팀 검색" autocomplete="off"></label><div class="filter-group" id="categoryFilters" role="group" aria-label="프로젝트 분류"></div></div>
+        <div class="project-grid" id="projectGrid"><div class="empty-state" id="emptyState"><h3>검색 결과가 없습니다.</h3><p>다른 검색어나 분류를 선택해 보세요.</p><button type="button" id="clearSearch">전체 프로젝트 보기</button></div></div>
+      </div>
+    </section>
+
+    <section class="process-section" id="process" aria-labelledby="process-title"><div class="section-inner"><div class="process-intro"><p class="section-eyebrow">FROM IDEA TO INVENTION</p><h2 id="process-title">아이디어에서 발명까지</h2><p>학생들은 문제를 발견하고, 팀원과 아이디어를 나누며, 직접 만들고 개선하는 과정을 경험합니다. 완벽한 정답보다 탐구와 도전의 가치를 발견합니다.</p></div><div class="step-grid"><div class="step-card"><div class="step-icon">✦ <span>STEP 01</span></div><h3>문제 발견</h3><p>생활 속 불편함과 궁금증 찾기</p></div><div class="step-card"><div class="step-icon">◇ <span>STEP 02</span></div><h3>아이디어 구상</h3><p>더 나은 해결 방법 상상하기</p></div><div class="step-card"><div class="step-icon">⌘ <span>STEP 03</span></div><h3>설계 · 제작</h3><p>회로와 부품으로 생각을 실현하기</p></div><div class="step-card"><div class="step-icon">↻ <span>STEP 04</span></div><h3>시험 · 개선</h3><p>동작을 확인하고 새롭게 고치기</p></div><div class="step-card"><div class="step-icon">↗ <span>STEP 05</span></div><h3>결과 공유</h3><p>팀 홈페이지에 도전 과정 알리기</p></div></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><div><strong>2026 INVENTION LAB</strong><p>서울시교육청 융합과학교육원 · 2026 발명(심화) 과정</p></div><a class="back-top" href="#top">위로 돌아가기 ↑</a></div></footer>
+
+  <dialog class="detail-dialog" id="detailDialog" aria-labelledby="dialogTitle"><button type="button" class="dialog-close" id="closeDialog" aria-label="상세 소개 닫기">×</button><div id="dialogContent"></div></dialog>
+  <noscript><div style="background:#ffffff;color:#132337;padding:28px;text-align:center">이 전시관은 프로젝트 회전, 검색 및 상세 보기를 위해 JavaScript가 필요합니다. 브라우저에서 JavaScript를 활성화해 주세요.</div></noscript>
+  <script>
+  'use strict';
+  // ★ 팀 홈페이지 및 작품 정보는 아래 PROJECTS 배열에서 변경할 수 있습니다.
+  // 홈페이지를 추가할 때 websiteUrl에는 https://로 시작하는 주소를 넣어주세요.
+  const PROJECTS = [
+    {id:1,team:'TEAM 01',title:'토양 습도 기반 자동 물주기 장치',category:'생활 · 환경',accent:'#4ccbaa',image:'assets/watering.webp',alt:'화분의 토양 습도 센서, 아두이노, 워터펌프, 릴레이와 물통을 표현한 파스텔 일러스트',subtitle:'물이 필요한 순간을 알아차리는 작은 발명',summary:'토양의 습도를 감지하고, 아두이노와 워터펌프를 활용해 식물의 물주기를 자동화하는 방법을 탐구합니다.',tags:['아두이노','토양 습도 센서','워터펌프','릴레이'],components:['아두이노','토양 습도 센서','워터펌프','릴레이 모듈','호스','연결 전선'],steps:['호스를 워터펌프에 연결하고 연결 부위를 녹색 절연 테이프로 고정합니다.','토양 습도 센서에 전선을 연결합니다.','드라이버로 릴레이 모듈의 접합부를 풉니다.','워터펌프와 릴레이 모듈을 연결합니다.'],websiteUrl:'https://sites.google.com/view/vdwzvwtdgg/'},
+    {id:2,team:'TEAM 02',title:'전자석을 이용한 자석 위치 제어 실험 장치',category:'물리 · 제어',accent:'#649ae9',image:'assets/magnet.webp',alt:'상단 전자석과 투명 아크릴 원통 속 자석, 하단 초음파 센서와 아두이노를 표현한 파스텔 일러스트',subtitle:'보이지 않는 자기력을 눈앞에서 탐구하다',summary:'전자석과 초음파 센서를 활용해 원통 안 자석의 위치를 감지하고 제어하는 방법을 탐구하는 실험 장치입니다.',tags:['아두이노','전자석','초음파 센서','제어 장치'],components:['전자석 코일','투명 아크릴 원통','자석','초음파 센서','아두이노 UNO','제어 장치'],steps:[],websiteUrl:'https://sites.google.com/view/chickenpizzahamberger/'},
+    {id:3,team:'TEAM 03',title:'복약 시간 알림 스마트 약통',category:'생활 · 돌봄',accent:'#ffbc58',image:'assets/medicine.webp',alt:'알림 조명과 소리 표시, 알약과 시계 아이콘, 내부 아두이노 부품이 있는 스마트 약통의 파스텔 일러스트',subtitle:'잊기 쉬운 시간을 따뜻하게 알려주는 아이디어',summary:'약을 먹어야 할 시간을 빛과 소리로 알려주는 스마트 약통을 구상하여 일상 속 복약 습관을 돕는 방법을 탐구합니다.',tags:['아두이노','시간 알림','빛 알림','소리 알림'],components:['약통','아두이노','알림 조명','소리 알림 장치','연결 부품'],steps:[],websiteUrl:'https://sites.google.com/sonline20.sen.go.kr/nova20261015/%ED%99%88'}
+  ];
+  const $ = selector => document.querySelector(selector);
+  const safe = text => String(text ?? '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const validUrl = text => { try { let u=new URL(text); return /^https?:$/.test(u.protocol) ? u.href : ''; } catch { return ''; } };
+  const idText = id => String(id).padStart(2,'0');
+  let selected = 0, activeCategory = '전체', searchText = '', autoTimer = null, wantsAuto = false, lastPointer = null, lastHoverAt = 0, lastDialogTrigger = null;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const track = $('#orbitTrack');
+  const dots = $('#slideDots');
+  const scene = $('#orbitScene');
+  const dialog = $('#detailDialog');
+
+  function initCarousel() {
+    track.innerHTML = PROJECTS.map((p,i)=>`<article class="orbit-card" data-index="${i}" data-position="${i===0?'center':i===1?'right':'left'}" tabindex="0" role="group" aria-roledescription="프로젝트 카드" aria-label="${safe(p.team)} ${safe(p.title)}. 마우스나 선택 키로 카드 회전" style="--accent:${safe(p.accent)}"><div class="orbit-art"><img src="${safe(p.image)}" alt="${safe(p.alt)}" draggable="false"><div class="orbit-index"><span></span>${safe(p.team)}</div></div><div class="orbit-info"><div><span class="orbit-kicker">${safe(p.category)}</span><h3 class="orbit-title">${safe(p.title)}</h3><div class="orbit-tag">${safe(p.subtitle)}</div></div><a class="orbit-link" href="${safe(validUrl(p.websiteUrl))}" target="_blank" rel="noopener noreferrer" title="${safe(p.team)} 홈페이지 방문 (새 탭)" aria-label="${safe(p.team)} 홈페이지 방문 (새 탭)">↗</a></div></article>`).join('');
+    dots.innerHTML = PROJECTS.map((p,i)=>`<button class="slide-dot" type="button" data-dot="${i}" aria-label="${safe(p.team)} 슬라이드 선택" aria-current="${i===0?'true':'false'}"></button>`).join('');
+    track.querySelectorAll('.orbit-card').forEach(card=>{
+      const i=Number(card.dataset.index);
+      card.addEventListener('pointerenter',event=>{
+        if(event.pointerType==='touch') return;
+        const pt={x:event.clientX,y:event.clientY};
+        // 움직이는 카드 아래에서 포인터 이벤트가 재발생할 때 의도치 않은 연속 회전 방지
+        if(lastPointer && Date.now()-lastHoverAt < 850 && Math.hypot(pt.x-lastPointer.x,pt.y-lastPointer.y)<105) return;
+        if(selected!==i) { lastPointer=pt; lastHoverAt=Date.now(); selectSlide(i); }
+      });
+      card.addEventListener('click',event=>{ if(event.target.closest('a')) return; if(i!==selected) selectSlide(i); else showDetails(pick(i), card); });
+      card.addEventListener('keydown',event=>{ if((event.key==='Enter'||event.key===' ') && event.target===card) { event.preventDefault(); if(i===selected) showDetails(pick(i),card); else selectSlide(i); } });
+      card.addEventListener('focus',()=>{ if(selected!==i) selectSlide(i); });
+    });
+    dots.querySelectorAll('button').forEach(d=>d.addEventListener('click',()=>selectSlide(Number(d.dataset.dot))));
+    selectSlide(0);
+  }
+  function pick(i) { return PROJECTS[(i+PROJECTS.length)%PROJECTS.length]; }
+  function selectSlide(index) {
+    selected=(index+PROJECTS.length)%PROJECTS.length;
+    const p=pick(selected);
+    track.querySelectorAll('.orbit-card').forEach((card,i)=>{
+      const delta=(i-selected+PROJECTS.length)%PROJECTS.length;
+      card.dataset.position = delta===0?'center':delta===1?'right':'left';
+      card.querySelector('.orbit-link').tabIndex = delta===0 ? 0 : -1;
+      card.setAttribute('aria-description',delta===0?'현재 선택된 프로젝트':'클릭하거나 마우스를 올리면 앞으로 회전');
+    });
+    dots.querySelectorAll('button').forEach((dot,i)=>dot.setAttribute('aria-current', String(i===selected)));
+    $('#featuredNum').textContent=idText(p.id);
+    $('#featuredCategory').textContent=p.category;
+    $('#featuredTitle').textContent=p.title;
+    const link=$('#featuredVisit');
+    const url=validUrl(p.websiteUrl);
+    link.href=url||'#gallery';
+    link.textContent=url?'팀 홈페이지 방문 ↗':'홈페이지 준비 중';
+    link.setAttribute('aria-label',url?`${p.team} 홈페이지 방문, 새 탭`:'홈페이지 준비 중');
+    if(!url) link.setAttribute('aria-disabled','true'); else link.removeAttribute('aria-disabled');
+  }
+  $('#prevSlide').addEventListener('click',()=>selectSlide(selected-1));
+  $('#nextSlide').addEventListener('click',()=>selectSlide(selected+1));
+  $('#featuredDetail').addEventListener('click',event=>showDetails(pick(selected),event.currentTarget));
+  scene.addEventListener('keydown',e=>{ if(e.key==='ArrowRight') {e.preventDefault();selectSlide(selected+1);} if(e.key==='ArrowLeft') {e.preventDefault();selectSlide(selected-1);} });
+  scene.addEventListener('pointerleave',()=>{lastPointer=null; if(wantsAuto) startAuto();});
+  scene.addEventListener('pointerenter',()=>{stopAuto();});
+  let touchStart=null;
+  scene.addEventListener('touchstart',e=>{ if(e.touches.length===1) touchStart={x:e.touches[0].clientX,y:e.touches[0].clientY}; },{passive:true});
+  scene.addEventListener('touchend',e=>{if(!touchStart||!e.changedTouches.length)return; const dx=e.changedTouches[0].clientX-touchStart.x,dy=e.changedTouches[0].clientY-touchStart.y; if(Math.abs(dx)>48&&Math.abs(dx)>Math.abs(dy)*1.2){selectSlide(selected+(dx<0?1:-1));} touchStart=null;},{passive:true});
+  function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null;}}
+  function startAuto(){stopAuto(); if(!wantsAuto||reduceMotion.matches||document.hidden)return; autoTimer=setInterval(()=>selectSlide(selected+1),5200);}
+  $('#autoPlayToggle').addEventListener('click',()=>{wantsAuto=!wantsAuto; const btn=$('#autoPlayToggle');btn.classList.toggle('is-playing',wantsAuto);btn.setAttribute('aria-pressed',String(wantsAuto));btn.setAttribute('aria-label',wantsAuto?'자동 회전 끄기':'자동 회전 켜기');btn.title=wantsAuto?'자동 회전 끄기':'자동 회전 켜기'; if(wantsAuto)startAuto(); else stopAuto();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAuto();else if(wantsAuto)startAuto();});
+  reduceMotion.addEventListener?.('change',()=>{if(reduceMotion.matches)stopAuto();else if(wantsAuto)startAuto();});
+
+  function initCatalog() {
+    const categories=['전체',...new Set(PROJECTS.map(p=>p.category))];
+    $('#categoryFilters').innerHTML=categories.map(cat=>`<button type="button" class="filter-chip" data-category="${safe(cat)}" aria-pressed="${cat==='전체'}">${safe(cat)}</button>`).join('');
+    $('#categoryFilters').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{activeCategory=btn.dataset.category;$('#categoryFilters').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));renderCatalog();}));
+    $('#projectSearch').addEventListener('input',e=>{searchText=e.target.value.trim().toLocaleLowerCase();renderCatalog();});
+    $('#clearSearch').addEventListener('click',()=>{activeCategory='전체';searchText='';$('#projectSearch').value='';$('#categoryFilters').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category==='전체')));renderCatalog();$('#projectSearch').focus();});
+    $('#catalogCount').textContent=`현재 ${PROJECTS.length}개 작품`;
+    renderCatalog();
+  }
+  function renderCatalog(){
+    $('#projectGrid').querySelectorAll('.project-item').forEach(node=>node.remove());
+    const list=PROJECTS.filter(p=>(activeCategory==='전체'||p.category===activeCategory)&&[p.team,p.title,p.summary,p.subtitle,...p.tags].join(' ').toLocaleLowerCase().includes(searchText));
+    const fragment=document.createDocumentFragment();
+    list.forEach(p=>{
+      const el=document.createElement('article');el.className='project-item';el.style.setProperty('--accent',p.accent);
+      el.innerHTML=`<div class="project-art"><img src="${safe(p.image)}" alt="${safe(p.alt)}" loading="lazy"><div class="index-corner"><i></i>${safe(p.team)}</div></div><div class="project-copy"><div class="project-category">${safe(p.category)}</div><h3>${safe(p.title)}</h3><p>${safe(p.summary)}</p><div class="tech-tags">${p.tags.map(t=>`<span>${safe(t)}</span>`).join('')}</div><div class="project-actions"><a class="btn-site" href="${safe(validUrl(p.websiteUrl))}" target="_blank" rel="noopener noreferrer" aria-label="${safe(p.team)} 홈페이지 방문, 새 탭">팀 홈페이지 ↗</a><button type="button" class="btn-detail">자세히 보기</button></div></div>`;
+      el.querySelector('.btn-detail').addEventListener('click',event=>showDetails(p,event.currentTarget));
+      fragment.appendChild(el);
+    });
+    $('#projectGrid').insertBefore(fragment,$('#emptyState'));
+    $('#emptyState').classList.toggle('show',list.length===0);
+  }
+  function showDetails(p,origin){
+    lastDialogTrigger=origin||document.activeElement;
+    $('#dialogContent').innerHTML=`<div class="dialog-head"><img src="${safe(p.image)}" alt="${safe(p.alt)}"></div><div class="dialog-copy"><div class="dialog-cat">${safe(p.team)} · ${safe(p.category)}</div><h2 id="dialogTitle">${safe(p.title)}</h2><p class="dialog-desc">${safe(p.summary)}</p><h3 class="dialog-subheading">사용 부품 및 기술</h3><div class="dialog-tags">${p.components.map(t=>`<span>${safe(t)}</span>`).join('')}</div>${p.steps.length?`<h3 class="dialog-subheading">제공된 제작 과정</h3><ol class="dialog-steps">${p.steps.map(s=>`<li>${safe(s)}</li>`).join('')}</ol>`:''}<div class="dialog-foot"><span class="dialog-notice">프로젝트 이미지는 아이디어 이해를 돕기 위한 일러스트입니다.<br>실제 제작 결과와 다를 수 있습니다.</span><a class="dialog-visit" href="${safe(validUrl(p.websiteUrl))}" target="_blank" rel="noopener noreferrer" aria-label="${safe(p.team)} 홈페이지 방문, 새 탭">팀 홈페이지 방문 ↗</a></div></div>`;
+    if(!dialog.open)dialog.showModal();
+    document.body.classList.add('modal-open');
+    $('#closeDialog').focus();
+    stopAuto();
+  }
+  $('#closeDialog').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
+  dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');lastDialogTrigger?.focus?.();lastDialogTrigger=null;if(wantsAuto)startAuto();});
+  const mobileHint = window.matchMedia('(max-width: 820px)');
+  function setHint(){$('#interactionHint').innerHTML=mobileHint.matches?'↔ <strong>카드를 터치하거나 좌우로 밀면</strong> 작품이 입체적으로 회전합니다.':'↗ <strong>옆 카드에 마우스를 올리면</strong> 선택한 작품이 앞으로 회전합니다. · 좌우 방향키도 사용해보세요.';}
+  mobileHint.addEventListener?.('change',setHint);setHint();initCarousel();initCatalog();
+  </script>
+</body>
+</html>
